@@ -1,0 +1,15 @@
+[package]
+name = "ray-tracer"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+once_cell = "1.16.0"
+rand = "0.8.5"
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+panic = "abort"
