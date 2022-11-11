@@ -1,4 +1,4 @@
-use crate::{clamp, Point, rand, rand_range};
+use crate::{clamp, rand, rand_range, Point};
 use std::ops::Add;
 use std::{fs::File, io::Write};
 
@@ -31,18 +31,18 @@ impl Color {
     }
 
     #[must_use]
-    pub fn random() -> Self{
+    pub fn random() -> Self {
         Self::new(rand(), rand(), rand())
     }
 
     #[must_use]
-    pub fn rand_range(min: f64, max: f64) -> Self{
+    pub fn rand_range(min: f64, max: f64) -> Self {
         Self::new(
             rand_range(min, max),
             rand_range(min, max),
-            rand_range(min, max)
+            rand_range(min, max),
         )
-    }   
+    }
 
     #[must_use]
     pub fn as_output(&self, samples: u32) -> Vec<u8> {

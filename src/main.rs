@@ -45,16 +45,10 @@ fn main() {
         "image height must be divisible by the thread interval"
     );
 
-
-
     let material_ground = Lambertian::new_arc(Color::new(0.5, 0.5, 0.5));
     let material_solid = Lambertian::new_arc(Color::new(0.7, 0.3, 0.3));
     let material_metal = Metal::new_arc(Color::new(0.6, 0.6, 0.6), 0.15);
     let material_dielectric = Dielectric::new_arc(1.5);
-
-    
-    
-
 
     add_to_world(Sphere::boxed(
         Point::new(0.0, -1000., -1.0),
@@ -62,18 +56,17 @@ fn main() {
         material_ground.clone(),
     ));
 
-    for a in -11..11{
-        for b in -11..11{
+    for a in -11..11 {
+        for b in -11..11 {
             let random = rand();
-            let center = Point::new((a as f64) + 0.9*rand(), 0.195, (b as f64)+0.9*rand());
-            if (center - Point::new(4., 0.195, 0.)).len() > 0.9{
+            let center = Point::new((a as f64) + 0.9 * rand(), 0.195, (b as f64) + 0.9 * rand());
+            if (center - Point::new(4., 0.195, 0.)).len() > 0.9 {
                 let material: Arc<dyn Material>;
 
-
-                if random < 0.8{
+                if random < 0.8 {
                     let albedo = Color::random() * Color::random();
                     material = Lambertian::new_arc(albedo);
-                    add_to_world(Sphere::boxed(center, 0.2, material)); 
+                    add_to_world(Sphere::boxed(center, 0.2, material));
                 } else {
                     let albedo = Color::rand_range(0.5, 1.);
                     let fuzz = rand_range(0., 0.35);
@@ -83,7 +76,6 @@ fn main() {
             }
         }
     }
-
 
     let camera = Camera::new()
         .vfov(20.)

@@ -66,8 +66,8 @@ impl Point {
     }
 
     #[must_use]
-    pub fn random_in_unit_disk() -> Self{
-        loop{
+    pub fn random_in_unit_disk() -> Self {
+        loop {
             let p = Vec3::new(rand_range(-1., 1.), rand_range(-1., 1.), 0.);
             if p.len_sq() < 1. {
                 return p;

@@ -16,9 +16,7 @@ pub struct Camera {
     u: Vec3,
     v: Vec3,
     w: Vec3,
-    focus_dist: f64
-
-
+    focus_dist: f64,
 }
 
 impl Default for Camera {
@@ -41,7 +39,7 @@ impl Default for Camera {
             u: Vec3::default(),
             v: Vec3::default(),
             w: Vec3::default(),
-            focus_dist: Vec3::new(-1., 0., 1.).len() //(lookfrom - lookat).len()
+            focus_dist: Vec3::new(-1., 0., 1.).len(), //(lookfrom - lookat).len()
         }
     }
 }
@@ -91,7 +89,6 @@ impl Camera {
         Camera { view_h, ..self }.update_dependent_components()
     }
 
-
     #[must_use]
     pub fn origin(self, origin: Point) -> Self {
         Camera { origin, ..self }.update_dependent_components()
@@ -123,19 +120,21 @@ impl Camera {
     }
 
     #[must_use]
-    pub fn lens_radius(self, radius: f64) -> Self{
-        Camera{
+    pub fn lens_radius(self, radius: f64) -> Self {
+        Camera {
             lens_radius: radius,
             ..self
-        }.update_dependent_components()
+        }
+        .update_dependent_components()
     }
 
     #[must_use]
-    pub fn focus_dist(self, dist: f64) -> Self{
-        Camera{
+    pub fn focus_dist(self, dist: f64) -> Self {
+        Camera {
             focus_dist: dist,
             ..self
-        }.update_dependent_components()
+        }
+        .update_dependent_components()
     }
 
     #[must_use]
