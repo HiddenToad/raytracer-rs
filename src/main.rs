@@ -23,7 +23,6 @@ use std::{
     thread,
 };
 
-use std::time::Instant;
 
 static WORLD: Lazy<Arc<RwLock<CollidableVec>>> =
     Lazy::new(|| Arc::new(RwLock::new(CollidableVec::new())));
