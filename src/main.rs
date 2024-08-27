@@ -28,12 +28,12 @@ static WORLD: Lazy<Arc<RwLock<CollidableVec>>> =
     Lazy::new(|| Arc::new(RwLock::new(CollidableVec::new())));
 
 pub const ASPECT_RATIO: f64 = 1.;
-pub const IMG_W: i32 = 450;
+pub const IMG_W: i32 = 3840;
 pub const IMG_H: i32 = (IMG_W as f64 / ASPECT_RATIO) as i32;
 
-pub const SAMPLES: u32 = 150;
-pub const MAX_DEPTH: i32 = 50;
-pub const THREAD_INTERVAL: i32 = 150;
+pub const SAMPLES: u32 = 256;
+pub const MAX_DEPTH: i32 = 128;
+pub const THREAD_INTERVAL: i32 = 240;
 pub const NUM_THREADS: i32 = IMG_W / THREAD_INTERVAL;
 
 fn main() {
